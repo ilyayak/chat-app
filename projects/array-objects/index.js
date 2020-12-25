@@ -11,7 +11,7 @@
  */
 function forEach(array, fn) {
   for (i = 0; i < array.lenght; i++) {
-    fn(array[i], i, array);
+    fn(array[i], i, array)
   }
 
 }
