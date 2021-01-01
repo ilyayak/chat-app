@@ -27,8 +27,8 @@ function forEach(array, fn) {
 function map(array, fn) {
   const modified = [];
 
-  for (let i = 0; i < array.length; i++){
-    modified[i] = fn (array[i],i, array);
+  for (let i = 0; i < array.length; i++) {
+    modified[i] = fn(array[i], i, array);
   }
   return modified;
 }
@@ -46,8 +46,8 @@ function reduce(array, fn, initial) {
   const hasInitial = typeof initial !== 'undefined';
   let prev = hasInitial ? initial : array[0];
 
-  for(let i = hasInitial ? 0 : 1;i<array.length;i++){
-    prev= fn(prev, array[i],i,array);
+  for (let i = hasInitial ? 0 : 1; i < array.length; i++) {
+    prev = fn(prev, array[i], i, array);
   }
   return prev;
 }
@@ -63,7 +63,7 @@ function reduce(array, fn, initial) {
 function upperProps(obj) {
   const props = [];
 
-  for (const name in obj){
+  for (const name in obj) {
     props.push(name.toUpperCase());
   }
   return props;
@@ -82,7 +82,7 @@ function upperProps(obj) {
  */
 function createProxy(obj) {
   return new Proxy(obj, {
-    set(obj,key,value){
+    set(obj, key, value) {
       obj[key] = value ** 2;
       return true;
     },
