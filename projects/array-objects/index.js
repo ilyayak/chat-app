@@ -10,7 +10,7 @@
    forEach([1, 2, 3], (el) => console.log(el))
  */
 function forEach(array, fn) {
-  for (let i = 0; i < array.lenght; i++) {
+  for (let i = 0; i < array.length; i++) {
     fn(array[i], i, array);
   }
 }
@@ -27,8 +27,8 @@ function forEach(array, fn) {
 function map(array, fn) {
   const modified = [];
 
-  for (let i = 0; i < array.lenght; i++){
-    miodified[i] = fn (array[i],i, array);
+  for (let i = 0; i < array.length; i++){
+    modified[i] = fn (array[i],i, array);
   }
   return modified;
 }
