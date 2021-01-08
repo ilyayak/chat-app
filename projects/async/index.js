@@ -22,7 +22,7 @@
 
 /*
  homeworkContainer - это контейнер для всех ваших домашних заданий
- Если вы создаете новые html-элементы и добавляете их на страницу, то добавляйте их только в этот контейнер
+ Если вы создаете новые html-элементы и добавляете их на страницу, то дабавляйте их только в этот контейнер
 
  Пример:
    const newDiv = document.createElement('div');
@@ -32,7 +32,7 @@
 import { loadAndSortTowns } from './functions';
 import './towns.html';
 
-const homeworkContainer = document.querySelector('#app');
+const homeworkContainer = document.querySelector('#homework-container');
 
 /*
  Функция должна вернуть Promise, который должен быть разрешен с массивом городов в качестве значения
@@ -41,6 +41,7 @@ const homeworkContainer = document.querySelector('#app');
  https://raw.githubusercontent.com/smelukov/citiesTest/master/cities.json
  */
 function loadTowns() {
+  return loadAndSortTowns();
 }
 
 /*
@@ -55,6 +56,7 @@ function loadTowns() {
    isMatching('Moscow', 'Moscov') // false
  */
 function isMatching(full, chunk) {
+  return full.toLowerCase().includes(chunk.toLowerCase());
 }
 
 /* Блок с надписью "Загрузка" */
@@ -70,13 +72,47 @@ const filterInput = homeworkContainer.querySelector('#filter-input');
 /* Блок с результатами поиска */
 const filterResult = homeworkContainer.querySelector('#filter-result');
 
+let towns = [];
+
 retryButton.addEventListener('click', () => {
+  tryToLoad();
 });
 
 filterInput.addEventListener('input', function () {
+  updateFilter(this.value);
 });
 
 loadingFailedBlock.classList.add('hidden');
 filterBlock.classList.add('hidden');
+
+async function tryToLoad() {
+  try {
+    towns = await loadTowns();
+    loadingBlock.classList.add('hidden');
+    loadingFailedBlock.classList.add('hidden');
+    filterBlock.classList.remove('hidden');
+  } catch (e) {
+    loadingBlock.classList.add('hidden');
+    loadingFailedBlock.classList.remove('hidden');
+  }
+}
+
+function updateFilter(filterValue) {
+  filterResult.innerHTML = '';
+
+  const fragment = document.createDocumentFragment();
+
+  for (const town of towns) {
+    if (filterValue && isMatching(town.name, filterValue)) {
+      const townDiv = document.createElement('div');
+      townDiv.textContent = town.name;
+      fragment.append(townDiv);
+    }
+  }
+
+  filterResult.append(fragment);
+}
+
+tryToLoad();
 
 export { loadTowns, isMatching };
