@@ -51,7 +51,7 @@ module.exports = {
         options: { cacheDirectory: true },
       },
       {
-        test: /projects\/.+\.html/,
+        test: /.\.html/,
         use: [
           { loader: './scripts/html-inject-loader.js' },
           {
