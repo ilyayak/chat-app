@@ -1,7 +1,7 @@
 const hasOwnProperty = Object.prototype.hasOwnProperty;
 
 describe('ДЗ 6.2 - Фильтр городов', () => {
-  const filterPage = require('./index');
+  const filterPage = require('./index.js');
   const homeworkContainer = document.querySelector('#homework-container');
   let loadingBlock;
   let filterBlock;

@@ -1,4 +1,4 @@
-import { delayPromise, loadAndSortTowns } from './functions';
+import { delayPromise, loadAndSortTowns } from './functions.js';
 
 const hasOwnProperty = Object.prototype.hasOwnProperty;
 
