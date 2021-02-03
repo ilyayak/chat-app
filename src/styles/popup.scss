@@ -1,0 +1,160 @@
+.popover {
+    position: relative;
+    min-width: 280px;
+    // min-height: 528px;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 5px 10px #747473;
+
+    &__col {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        color: #fff;
+        background: #5DADE2;
+        padding: 10px 7px;
+    }
+
+    *+&__address {
+        margin-left: 10px;
+    }
+
+    &__content {
+        height: 82.9545454545%;
+        padding: 10px;
+    }
+
+    &__footer {
+        height: 8.52272727273%;
+        padding: 0 10px;
+    }
+}
+
+.header {
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &__title {
+        left: 20px;
+    }
+}
+
+.comments {
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+
+    &__inner {
+        height: 91px;
+        overflow: scroll;
+        overflow-x: hidden;
+        -ms-overflow-x: hidden;
+
+        &::-webkit-scrollbar {
+            width: 5px;
+
+            &-thumb {
+                background-color: #c4c4c4;
+            }
+        }
+
+        &>div {
+            padding: 5px 0;
+        }
+    }
+
+    &__comment {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-right: 5px;
+    }
+}
+
+.form {
+    display: flex;
+
+    flex-direction: column;
+    font-family: Open sans, sans-serif;
+
+    &__title {
+        color: #5DADE2;
+        font-weight: bold;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+    }
+
+    &__input {
+        width: 100%;
+        height: 35px;
+        border-radius: 5px;
+        padding: 0 10px;
+        border: 1px solid #ccc;
+        margin-bottom: 10px;
+        outline: none;
+        font-family: Open sans, sans-serif;
+
+        &:focus {
+            border: 1px solid #222;
+        }
+    }
+
+    &__textarea {
+        height: 85px;
+        overflow: hidden;
+        font-family: Open sans, sans-serif;
+    }
+
+
+    &__message {
+        height: 85px;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        resize: none;
+        outline: none;
+        border: none;
+        overflow: scroll;
+        overflow-x: hidden;
+
+        &-wrapper {
+            padding: 5px 5px 5px 10px;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+            overflow: hidden;
+            margin-bottom: 20px;
+
+            &:focus-within {
+                border: 1px solid #222;
+            }
+        }
+
+        &::-webkit-scrollbar {
+            width: 5px;
+        }
+    }
+
+    &__button {
+        align-self: flex-end;
+        padding: 8px 10px;
+        background: #5DADE2;
+        color: #fff;
+        border-radius: 10px;
+        font-family: Open sans, sans-serif;
+        text-transform: uppercase;
+        user-select: none;
+        outline: none;
+        border: 1px solid transparent;
+
+        &:focus {
+            border-color: #222;
+        }
+    }
+}
