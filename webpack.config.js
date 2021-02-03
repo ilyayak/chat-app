@@ -7,7 +7,7 @@ module.exports = (env, argv) => {
   const isProd = argv.mode === 'production';
   const config = {
     mode: 'development',
-    entry: ["./src/main.scss", "./src/main.js"],
+      entry: ["./projects/georeview/src/main.scss", "./projects/georeview/src/main.js"],
     output: {
       path: path.resolve(__dirname, "docs"),
       filename: "[fullhash].[name].js",
@@ -33,20 +33,9 @@ module.exports = (env, argv) => {
       ],
     },
     plugins: [
-      new CopyPlugin({
-        patterns: [
-          { 
-            from: path.resolve(__dirname, "src/img"), 
-            to: path.resolve(__dirname, 'docs/img')
-          },
-          { 
-            from: path.resolve(__dirname, "src/favicon.ico"), 
-            to: path.resolve(__dirname, 'docs')
-          }
-        ]
-      }),
+      
       new HtmlWebpackPlugin({
-        template: "./src/index.html",
+        template: "./projects/georeview/src/index.html",
         filename: "index.html",
         hash: true,
         minify: {

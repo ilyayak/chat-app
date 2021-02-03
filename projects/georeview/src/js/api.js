@@ -1,13 +1,5 @@
 const database = {
-  "40.667197,22.873136": [
-    { name: 'Сергей Мелюков', place: 'Красный куб', date: '12.12.2015', text: 'Ужасное место! Кругом зомби!!!!' },
-    { name: 'svetlana', place: 'Шоколадница', date: '13.12.2015', text: 'Очень хорошее место!' },
-    { name: 'Stelios Baglaridis', place: 'Кафе-бар "Calypso"', date: '20.10.2019', text: 'Очень хорошее место!' },
-  ],
-  "40.660295,22.938367":  [
-    { name: "Сергей", place: "Кофемания", text: "Очень вкусно" },
-    { name: "Андрей", place: "Кофемания", text: "Согласен с Сергеем" }
-  ],
+  
 };
 
 // localStorage.setItem('placemarks', JSON.stringify(database));
