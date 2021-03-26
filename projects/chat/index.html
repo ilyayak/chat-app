@@ -1,9 +1,11 @@
 <style>
+    @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;700&display=swap');
     html, body, #app, #main {
         width: 100%;
         height: 100%;
         padding: 0;
         margin: 0;
+        font-family: 'Ubuntu', sans-serif;
     }
 
     #app {
@@ -14,11 +16,14 @@
     #main {
         display: flex;
     }
-
+button{
+outline: none ;
+font-family:'Ubuntu', sans-serif;
+}
     .left-side {
         flex-grow: 1;
         max-width: 320px;
-        background: linear-gradient(to bottom, #f19b6d, #EB8665);
+        background: #17212B;
         color: #FEFEFD;
         padding: 10px;
         box-sizing: border-box;
@@ -33,6 +38,8 @@
     .user-name {
         font-size: 18px;
         font-weight: bold;
+        color: #5387C1;
+
     }
 
     .user-photo, .message-item-photo {
@@ -52,41 +59,58 @@
     .user-list {
         padding: 5px 0 0 10px
     }
-
+.user-list-item{
+    color: #5387C1;
+}
     .right-side {
         display: flex;
         flex-grow: 1;
         flex-direction: column;
-        padding: 10px;
+padding-left: 2px;
+        background: #0E1621;
     }
-
+.message-input::placeholder {
+font-family: 'Ubuntu',sans-serif;
+}
     .messages-container {
         flex-grow: 1;
-        overflow: scroll;
+        
     }
 
     .input-container {
         margin-top: 10px;
         display: flex;
         align-items: center;
+       background-color:#17212B; 
     }
 
     .message-input {
-        height: 30px;
+        height: 54px;
         flex-grow: 1;
-        margin: 0 10px 0 0;
+        color: #fff;
+        background-color:#17212B;
+        border: none;
+        outline: none;
     }
 
     .send-button {
-        height: 25px;
+            height: 28px;
+    width: 112px;
+    background-color: #5387C1;
+    color: #fff;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    font-family:'Ubuntu', sans-serif;
     }
 
     #login {
+        font-family: 'Ubuntu', sans-serif;
         position: absolute;
         top: 20vh;
-        width: 500px;
-        height: 300px;
-        background: linear-gradient(to bottom, #f19b6d, #EB8665);
+        width: 452px;
+        height: 497px;
+        background-color:  #17212B;
         border-radius: 10px;
         box-shadow: 0 0 10px #7f7f7f;
         display: flex;
@@ -94,29 +118,81 @@
         align-items: center;
         justify-content: center;
     }
-
+    input{
+        font-family: 'Ubuntu', sans-serif;
+    }
+input::placeholder{
+    padding-left: 10px;
+}
     .login-field {
         margin: 15px;
         width: 300px;
         display: flex;
+        align-items: center;
+        flex-direction: column;
         justify-content: center;
+        font-family: 'Ubuntu', sans-serif;
     }
 
     .login-field input {
         font-size: 16px;
         height: 30px;
         width: 100%;
+        font-family: 'Ubuntu', sans-serif;
+        background: #17212B;
+        border: none;
+        border-bottom:solid 1px #465461;
+        margin-bottom: 19px;
+    
+    }
+    .login-name-input::placeholder:focus{
+        color: #fff;
+
+    }
+    .login-field input:focus{
+        color: #fff;
+        border-bottom: solid 1px #5188C0;
+        outline: none;
+    }
+    .login-field input::placeholder{
+        font-family: 'Ubuntu', sans-serif;
+    }
+    .login-field input::placeholder::focus{
+        color: #fff;
+    }
+    .login-title{
+        font-size: 24px;
+        margin-bottom: 13px;
+        color: white;
+        font-style: bold;
+    }
+
+    .login-text{
+        display: flex;
+        font-size: 16px;
+        color: #7F91A4;
+        align-items: center;
+        text-align: center;
     }
 
     .login-submit {
-        height: 30px;
-        width: 100px;
+        height: 43px;
+        width: 132px;
+        background: #5188C1;
+        font-family: 'Ubuntu', sans-serif;
+        font-weight:bold;
+        color: #fff;
+        border: none;
+        border-radius:5px;
+        text-transform: uppercase;
     }
 
     .message-item {
         display: flex;
     }
-
+.login-field_button{
+    background-color: #17212B;
+}
     .message-item-system {
         font-size: 14px;
         color: gray;
@@ -143,14 +219,19 @@
     .message-item-header-time {
         color: gray;
         font-size: 12px;
-    }
+    } 
 </style>
 <div id="app">
     <div id="login" class="hidden">
-        <div class="login-field">
-            <input type="text" class="login-name-input" data-role="login-name-input" placeholder="никнейм">
+        <div class="login-field text-field">
+            <img src="./photos/vector.png" alt="vector" class="login-pic">
+            <div class="login-title">Авторизация</div>
+            <div class="login-text">Введите пожалуйста свой ник для дальнейшей авторизации</div>
         </div>
         <div class="login-field">
+            <input type="text" class="login-name-input" data-role="login-name-input" placeholder="Введите свой ник">
+        </div>
+        <div class="login-field login-field_button">
             <button class="login-submit" data-role="login-submit">Войти</button>
         </div>
         <div class="login-error" data-role="login-error"></div>
@@ -175,7 +256,7 @@
         <div class="right-side">
             <div class="messages-container" data-role="messages-list"></div>
             <div class="input-container" data-role="message-sender">
-                <input class="message-input" data-role="message-input" type="text" placeholder="сообщение"/>
+                <input class="message-input" data-role="message-input" type="text" placeholder="Введите сообщение..."/>
                 <button class="send-button" data-role="message-send-button">Отправить</button>
             </div>
         </div>
